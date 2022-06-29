@@ -1,8 +1,5 @@
 # toxicologic
 
-
-**Este código é um desafio técnico para empresa Rainbow RH**
-
 - Techs e Libs utilizadas no desenvolvimento
   - Node.js 
   - TypeScript
