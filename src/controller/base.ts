@@ -6,8 +6,6 @@ class Base {
     try {
       const line = await prisma.base.count();
 
-      console.log(line);
-
       if (line > 0) {
         await prisma.base.deleteMany({});
       }

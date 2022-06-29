@@ -12,7 +12,7 @@ routes.get("/", (req, res) => {
 });
 
 routes.post("/user", user.create);
-routes.post("/user", base.create);
+routes.post("/base", base.create);
 
 routes.post("/login", auth.Authenticate);
 
