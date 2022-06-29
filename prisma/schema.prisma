@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  email    String @unique
+  password String
+
+  @@map("user")
+}
+
+model Patient {
+
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  name  String
+  email String @unique
+
+  Examples Examples[]
+  @@map("patient")
+}
+
+model Examples {
+
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  example_code    Int      @unique
+  cocain          Float
+  amphetamine     Float
+  methamphetamine Float
+  MDA             Float
+  MDMA            Float
+  THC             Float
+  morphine        Float
+  codeine         Float
+  heroine         Float
+  benzoylecgonine Float
+  cocaethylene    Float
+  norcocaine      Float
+  result          Boolean? @default(true)
+
+  Patient Patient? @relation(references: [email], fields: [patient])
+  patient String
+
+  @@map("examples")
+}
+
+model Base {
+
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  example_code    Int    @unique
+  cocain          Float
+  amphetamine     Float
+  methamphetamine Float
+  MDA             Float
+  MDMA            Float
+  THC             Float
+  morphine        Float
+  codeine         Float
+  heroine         Float
+  benzoylecgonine Float
+  cocaethylene    Float
+  norcocaine      Float
+
+  @@map("base")
+}
