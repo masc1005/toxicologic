@@ -11,6 +11,6 @@ server.use(express.json());
 server.use(cors());
 server.use(routes);
 
-server.listen(process.env.SERVER_PORT, () => {
+server.listen(process.env.PORT, () => {
   console.log("server up");
 });
