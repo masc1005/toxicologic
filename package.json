@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node --files src/server.ts",
-    "start": "nodemon build/index.js",
+    "start": "nodemon build/server.js",
     "build": "tsc",
     "generate": "prisma generate"
   },
