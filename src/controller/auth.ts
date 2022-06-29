@@ -7,7 +7,7 @@ import prisma from "../database/config";
 class AuthController {
   async Authenticate(req: Request, res: Response) {
     try {
-      const { email, pwd } = req.body;
+      const { email, password } = req.body;
 
       const userAuth = await prisma.user.findFirst({ where: { email } });
 
@@ -15,7 +15,7 @@ class AuthController {
         return res.send({ msg: "User not found!" }).status(404).end();
       }
 
-      const isValid = await bcrypt.compare(pwd, userAuth.password);
+      const isValid = await bcrypt.compare(password, userAuth.password);
 
       if (!isValid) {
         res.send({ msg: "Invalid Password" }).status(401).end();
